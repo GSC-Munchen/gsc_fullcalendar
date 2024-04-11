@@ -45,14 +45,35 @@
                     filtersActive = $('#categoryFilter<f:format.raw>{contentObject.uid}</f:format.raw>').length;
 
                 var calendar<f:format.raw>{contentObject.uid}</f:format.raw> = new FullCalendar.Calendar(calendarEl<f:format.raw>{contentObject.uid}</f:format.raw>, {
+                    schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
                     firstDay: 1,
                     <f:format.raw>{f:if(condition: '{settings.language}', then: 'locale: \'{settings.language}\',')}</f:format.raw>
                     initialView: '<f:format.raw>{settings.view}</f:format.raw>',
                     headerToolbar : {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                        left: 'title',
+                        center: '',
+                        right: 'prev,next today'
                     },
+                    eventTextColor: 'black',
+                    resources: [
+                        // See https://fullcalendar.io/docs/resource-parsing
+                        // TODO: figure out a way to get these from Typo3 or at least localize them dynamically
+                        {
+                            id: '1',
+                            title: 'Saal 1',
+                            eventColor: 'gold',
+                        },
+                        {
+                            id: '2',
+                            title: 'Saal 2',
+                            eventColor: 'orange'
+                        },
+                        {
+                            id: '3',
+                            title: 'Saal 3',
+                            eventColor: 'red'
+                        },
+                    ],
                     dayMaxEventRows: 4, /* when too many events in a day, show the popover */
                     navLinks: true,
                     fixedWeekCount: false,
@@ -127,8 +148,9 @@
                                     end: eventEl.end,
                                     allDay: eventEl.allDay,
                                     className: eventEl.className,
+                                    resourceId: eventEl.resourceId,
                                     url: eventEl.url,
-                                    uriAjax: eventEl.uriAjax
+                                    uriAjax: eventEl.uriAjax,
                                 }
                             })
                             
