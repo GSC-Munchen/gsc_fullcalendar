@@ -300,6 +300,14 @@
                                         <numIndex index="0">LLL:EXT:md_fullcalendar/Resources/Private/Language/locallang_db.xlf:flexform.view.timeGridDay</numIndex>
                                         <numIndex index="1">timeGridDay</numIndex>
                                     </numIndex>
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">LLL:EXT:md_fullcalendar/Resources/Private/Language/locallang_db.xlf:flexform.view.listMonth</numIndex>
+                                        <numIndex index="1">listMonth</numIndex>
+                                    </numIndex>
+                                    <numIndex index="4" type="array">
+                                        <numIndex index="0">LLL:EXT:md_fullcalendar/Resources/Private/Language/locallang_db.xlf:flexform.view.resourceTimeGrid</numIndex>
+                                        <numIndex index="1">resourceTimeGrid</numIndex>
+                                    </numIndex>
                                 </items>
                             </config>
                         </TCEforms>
