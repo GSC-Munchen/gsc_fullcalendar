@@ -189,6 +189,7 @@ class CalController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                     } else {
                         $items[$i]['abstract'] = $el->getOriginalObject()->getAbstract();
                         $items[$i]['location'] = $el->getOriginalObject()->getLocation();
+                        $items[$i]['resourceId'] = $this->getResourceId($el->getOriginalObject()->getLocation());
                         $items[$i]['locationLink'] = $el->getOriginalObject()->getLocationLink();
                         $items[$i]['organizer'] = $el->getOriginalObject()->getOrganizer();
                         $items[$i]['organizerLink'] = $el->getOriginalObject()->getOrganizerLink();
@@ -241,5 +242,21 @@ class CalController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         }
 
         return $cssClasses;
+    }
+
+    protected function getResourceId($location)
+    {
+        // these magic numbers correspond to the ids of resources defined when initializing fullcalendar
+        // cf. Show.html:57
+        switch ($location) {
+            case 'Saal 1':
+                return 1;
+            case 'Saal 2':
+                return 2;
+            case 'Saal 3':
+                return 3;
+            default:
+                return null;
+        }
     }
 }
