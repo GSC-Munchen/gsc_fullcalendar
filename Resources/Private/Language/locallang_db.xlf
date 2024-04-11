@@ -31,6 +31,12 @@
             <trans-unit id="flexform.view.timeGridDay">
                 <source>Day</source>
             </trans-unit>
+            <trans-unit id="flexform.view.listMonth">
+                <source>Month List</source>
+            </trans-unit>
+            <trans-unit id="flexform.view.resourceTimeGrid">
+                <source>Resource Time Grid</source>
+            </trans-unit>
             <trans-unit id="flexform.language">
                 <source>Language of calendar</source>
             </trans-unit>
