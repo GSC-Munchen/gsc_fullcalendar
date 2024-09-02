@@ -43,7 +43,7 @@ plugin.tx_mdfullcalendar_cal {
 page {
     includeCSS {
         mdFullcalendar = EXT:md_fullcalendar/Resources/Public/fullcalendar/lib/main.min.css
-        mdFullcalendar = EXT:md_fullcalendar/Resources/Public/Css/custom.min.css
+        gscFullcalendarCustom = EXT:md_fullcalendar/Resources/Public/Css/custom.min.css
     }
 
     includeJSFooterlibs {
