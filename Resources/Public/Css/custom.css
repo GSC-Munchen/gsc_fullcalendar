@@ -1,0 +1,34 @@
+/* custom styles for GSC event categories, see https://github.com/cdaecke/md_fullcalendar?tab=readme-ov-file#category-colors */
+.tx-md-fullcalendar {
+  /* colors taken from https://colordesigner.io/color-wheel using #ffd55f as the base color and the 12 color full wheel */
+  --colorWheelOne: #ffd561;
+  --colorWheelTwo: #daff61;
+  --colorWheelThree: #8bff61;
+  --colorWheelFour: #61ff86;
+  --colorWheelFive: #61ffd5;
+  --colorWheelSix: #61daff;
+  --colorWheelSeven: #618bff;
+  --colorWheelEight: #8661ff;
+  --colorWheelNine: #d561ff;
+  --colorWheelTen: #ff61da;
+  --colorWheelEleven: #ff618b;
+  --colorWheelTwelve: #ff8661;
+}
+.tx-md-fullcalendar .resource1 {
+  background-color: var(--colorWheelTwelve);
+  border-color: var(--colorWheelTwelve);
+}
+.tx-md-fullcalendar .resource2 {
+  background-color: var(--colorWheelOne);
+  border-color: var(--colorWheelOne);
+}
+.tx-md-fullcalendar .resource3 {
+  background-color: var(--colorWheelTwo);
+  border-color: var(--colorWheelTwo);
+}
+.tx-md-fullcalendar .category31 {
+  background-color: var(--colorWheelTen);
+  border-color: var(--colorWheelTen);
+}
+
+/*# sourceMappingURL=custom.css.map */
