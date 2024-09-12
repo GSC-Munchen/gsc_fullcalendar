@@ -38,16 +38,6 @@
     border-color: var(--colorWheelEight);
   }
 
-  .category7,
-  .category26 { // breitensport
-    background-color: var(--colorWheelTwelve);
-    border-color: var(--colorWheelTwelve);
-
-    * {
-      text-decoration-color: var(--colorWheelTwelve);
-    }
-  }
-
   .category6,
   .category27 { // latein
     background-color: var(--colorWheelEleven);
@@ -66,6 +56,16 @@
     * {
       text-decoration-color: var(--colorWheelOne);
       color: black;
+    }
+  }
+
+  .category7,
+  .category26 { // breitensport
+    background-color: var(--colorWheelTwelve);
+    border-color: var(--colorWheelTwelve);
+
+    * {
+      text-decoration-color: var(--colorWheelTwelve);
     }
   }
 
