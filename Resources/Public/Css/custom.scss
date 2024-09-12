@@ -14,23 +14,101 @@
   --colorWheelEleven: #ff618b;
   --colorWheelTwelve: #ff8661;
 
+  span.form-check {
+    background: none;
+
+    * {
+      text-decoration-line: underline;
+      text-decoration-thickness: 20%;
+    }
+  }
+
   .resource1 {
-    background-color: var(--colorWheelTwelve);
-    border-color: var(--colorWheelTwelve);
+    background-color: var(--colorWheelSix);
+    border-color: var(--colorWheelSix);
   }
 
   .resource2 {
-    background-color: var(--colorWheelOne);
-    border-color: var(--colorWheelOne);
+    background-color: var(--colorWheelSeven);
+    border-color: var(--colorWheelSeven);
   }
 
   .resource3 {
-    background-color: var(--colorWheelTwo);
-    border-color: var(--colorWheelTwo);
+    background-color: var(--colorWheelEight);
+    border-color: var(--colorWheelEight);
   }
 
-  .category31 {
+  .category7,
+  .category26 { // breitensport
+    background-color: var(--colorWheelTwelve);
+    border-color: var(--colorWheelTwelve);
+
+    * {
+      text-decoration-color: var(--colorWheelTwelve);
+    }
+  }
+
+  .category6,
+  .category27 { // latein
+    background-color: var(--colorWheelEleven);
+    border-color: var(--colorWheelEleven);
+
+    * {
+      text-decoration-color: var(--colorWheelEleven);
+    }
+  }
+
+  .category5,
+  .category28 { // standard
+    background-color: var(--colorWheelOne);
+    border-color: var(--colorWheelOne);
+
+    * {
+      text-decoration-color: var(--colorWheelOne);
+      color: black;
+    }
+  }
+
+  .category9,
+  .category29 { // jugend
+    background-color: var(--colorWheelSix); // old: mediumorchid
+    border-color: var(--colorWheelSix);
+
+    * {
+      text-decoration-color: var(--colorWheelSix);
+      color: black;
+    }
+  }
+
+  .category10,
+  .category30 { // freies training
+    background-color: var(--colorWheelTwo);
+    border-color: var(--colorWheelTwo);
+
+    * {
+      text-decoration-color: var(--colorWheelTwo);
+      color: black;
+    }
+  }
+
+  .category4,
+  .category31 { // Saalsperre
     background-color: var(--colorWheelTen);
     border-color: var(--colorWheelTen);
+
+    * {
+      text-decoration-color: var(--colorWheelTen);
+    }
+  }
+
+  .category8,
+  .category32 { // Inklusion
+    background-color: var(--colorWheelFive);
+    border-color: var(--colorWheelFive);
+
+    * {
+      text-decoration-color: var(--colorWheelFive);
+      color: black;
+    }
   }
 }
