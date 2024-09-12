@@ -53,21 +53,30 @@
 
             let calendar<f:format.raw>{contentObject.uid}</f:format.raw> = new FullCalendar.Calendar(calendarEl<f:format.raw>{contentObject.uid}</f:format.raw>, {
                 schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
-                    firstDay: 1,
-                    nowIndicator: true,
-                    allDaySlot: false,
-                    slotMinTime: "10:00:00",
-                    slotMinTime: "24:00:00",
-                    <f:format.raw>{f:if(condition: '{settings.language}', then: 'locale: \'{settings.language}\',')}</f:format.raw>
+                firstDay: 1,
+                allDaySlot: false,
+                <f:format.raw>{f:if(condition: '{settings.language}', then: 'locale: \'{settings.language}\',')}</f:format.raw>
                 initialView: '<f:format.raw>{settings.view}</f:format.raw>',
-                timeZone: "Europe/Berlin",
+                slotMinTime: "10:00",
+                slotMaxTime: "24:00",
+                aspectRatio: 1.75,
+                nowIndicator: true,
+                eventMaxStack: 2,
                 headerToolbar : {
-                left: 'title',
-                    center: '',
+                    left: 'title',
+                    center: 'resourceTimeGridWeek,resourceTimeGridDay',
                     right: 'prev,next today'
                 },
-                eventTextColor: 'black',
-                    resources: [
+                titleFormat: { day: "numeric", year: "numeric", month: "long", weekday: "long"},
+                views: {
+                    day: {
+                        titleFormat: { day: "numeric", year: "numeric", month: "long", weekday: "long"},
+                    },
+                    week: {
+                        titleFormat: {year: "numeric", month: "long", day: "2-digit"}
+                    }
+                },
+                resources: [
                     // See https://fullcalendar.io/docs/resource-parsing
                     // TODO: figure out a way to get these from Typo3 or at least localize them dynamically
                     {
@@ -86,11 +95,11 @@
                         eventClassNames: ['resource3'],
                     },
                 ],
-                    dayMaxEventRows: 4, /* when too many events in a day, show the popover */
-                    navLinks: true,
-                    fixedWeekCount: false,
-                    /* showNonCurrentDates: false, */ /* In month view, whether dates in the previous or next month should be rendered at all. */
-                    events: function(info, successCallback, failureCallback) {
+                dayMaxEventRows: 4, /* when too many events in a day, show the popover */
+                navLinks: true,
+                fixedWeekCount: false,
+                /* showNonCurrentDates: false, */ /* In month view, whether dates in the previous or next month should be rendered at all. */
+                events: function(info, successCallback, failureCallback) {
                     getEvents(info, successCallback, failureCallback);
                 },
                 eventDidMount: function (item) {
@@ -139,7 +148,6 @@
                     }
                 },
             });
-
             function getEvents(info, successCallback, failureCallback) {
                 let eventsUrl = '<f:format.raw><f:uri.page pageUid="<f:format.raw>{contentObject.pid}</f:format.raw>" pageType='1573738558' additionalParams="{storage: '{storagePid}'}" /></f:format.raw>';
 
@@ -169,6 +177,7 @@
                         successCallback(events);
                     },
                     error: function (jqXHR, exception) {
+                        failureCallback(exception)
                         alert('There was an error while fetching events!');
                     }
                 });
@@ -176,7 +185,6 @@
 
             /* render calendar */
             calendar<f:format.raw>{contentObject.uid}</f:format.raw>.render();
-
             /* category filter */
             $('#categoryFilter<f:format.raw>{contentObject.uid}</f:format.raw> [type=checkbox]').on('change', function () {
                 var selectedCategories = $('#categoryFilter<f:format.raw>{contentObject.uid}</f:format.raw> input:checked').map(function () {
