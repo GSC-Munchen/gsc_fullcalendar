@@ -305,8 +305,12 @@
                                         <numIndex index="1">listMonth</numIndex>
                                     </numIndex>
                                     <numIndex index="4" type="array">
-                                        <numIndex index="0">LLL:EXT:md_fullcalendar/Resources/Private/Language/locallang_db.xlf:flexform.view.resourceTimeGrid</numIndex>
-                                        <numIndex index="1">resourceTimeGrid</numIndex>
+                                        <numIndex index="0">LLL:EXT:md_fullcalendar/Resources/Private/Language/locallang_db.xlf:flexform.view.resourceTimeGridDay</numIndex>
+                                        <numIndex index="1">resourceTimeGridDay</numIndex>
+                                    </numIndex>
+                                    <numIndex index="4" type="array">
+                                        <numIndex index="0">LLL:EXT:md_fullcalendar/Resources/Private/Language/locallang_db.xlf:flexform.view.listWeek</numIndex>
+                                        <numIndex index="1">listWeek</numIndex>
                                     </numIndex>
                                 </items>
                             </config>

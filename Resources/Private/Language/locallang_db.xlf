@@ -37,6 +37,15 @@
             <trans-unit id="flexform.view.resourceTimeGrid">
                 <source>Resource Time Grid</source>
             </trans-unit>
+            <trans-unit id="flexform.view.resourceTimeGridDay">
+                <source>Resource Time Grid Day</source>
+            </trans-unit>
+            <trans-unit id="flexform.view.shortList">
+                <source>Short List</source>
+            </trans-unit>
+            <trans-unit id="flexform.view.listWeek">
+                <source>Week List</source>
+            </trans-unit>
             <trans-unit id="flexform.language">
                 <source>Language of calendar</source>
             </trans-unit>
