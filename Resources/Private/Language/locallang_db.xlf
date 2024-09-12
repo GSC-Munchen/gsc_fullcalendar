@@ -20,31 +20,22 @@
                 <source>Parent category for filter</source>
             </trans-unit>
             <trans-unit id="flexform.view">
-                <source>Calendar view</source>
+                <source>Calendar View</source>
             </trans-unit>
             <trans-unit id="flexform.view.dayGridMonth">
-                <source>Month</source>
-            </trans-unit>
-            <trans-unit id="flexform.view.timeGridWeek">
-                <source>Week</source>
-            </trans-unit>
-            <trans-unit id="flexform.view.timeGridDay">
-                <source>Day</source>
-            </trans-unit>
-            <trans-unit id="flexform.view.listMonth">
-                <source>Month List</source>
-            </trans-unit>
-            <trans-unit id="flexform.view.resourceTimeGrid">
-                <source>Resource Time Grid</source>
-            </trans-unit>
-            <trans-unit id="flexform.view.resourceTimeGridDay">
-                <source>Resource Time Grid Day</source>
-            </trans-unit>
-            <trans-unit id="flexform.view.shortList">
-                <source>Short List</source>
+                <source>Month View</source>
             </trans-unit>
             <trans-unit id="flexform.view.listWeek">
-                <source>Week List</source>
+                <source>Week List View</source>
+            </trans-unit>
+            <trans-unit id="flexform.view.listMonth">
+                <source>Month List View</source>
+            </trans-unit>
+            <trans-unit id="flexform.view.resourceTimeGridDay">
+                <source>Resource Time Grid Day View</source>
+            </trans-unit>
+            <trans-unit id="flexform.view.resourceTimeGridWeek">
+                <source>Resource Time Grid Week View</source>
             </trans-unit>
             <trans-unit id="flexform.language">
                 <source>Language of calendar</source>

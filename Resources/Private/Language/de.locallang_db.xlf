@@ -29,16 +29,24 @@
                 <target>Kalenderansicht</target>
             </trans-unit>
             <trans-unit id="flexform.view.dayGridMonth">
-                <source>Month</source>
-                <target>Monat</target>
+                <source>Month View</source>
+                <target>Monatsansicht</target>
             </trans-unit>
-            <trans-unit id="flexform.view.timeGridWeek">
-                <source>Week</source>
-                <target>Woche</target>
+            <trans-unit id="flexform.view.listWeek">
+                <source>Week List View</source>
+                <target>Wochenweise Listenansicht</target>
             </trans-unit>
-            <trans-unit id="flexform.view.timeGridDay">
-                <source>Day</source>
-                <target>Tag</target>
+            <trans-unit id="flexform.view.listMonth">
+                <source>Month List View</source>
+                <target>Monatsweise Listenansicht</target>
+            </trans-unit>
+            <trans-unit id="flexform.view.resourceTimeGridWeek">
+                <source>Resource Time Grid Week View</source>
+                <target>Wochenansicht mit Ressourcen und Zeitstrahl</target>
+            </trans-unit>
+            <trans-unit id="flexform.view.resourceTimeGridDay">
+                <source>Resource Time Grid Day View</source>
+                <target>Tagesansicht mit Ressourcen und Zeitstrahl</target>
             </trans-unit>
             <trans-unit id="flexform.language">
                 <source>Language of calendar</source>
