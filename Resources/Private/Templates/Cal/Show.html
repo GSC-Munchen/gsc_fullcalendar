@@ -3,31 +3,38 @@
 
 <f:section name="content">
     <div class="row">
-        <!-- Calendar -->
-            <div id="calendar{contentObject.uid}" class="col-md-{f:if(condition: '{categories}', then: '9', else: '12')}"></div>
-
         <f:if condition="{categories}">
-            <div id="categoryFilter{contentObject.uid}" class="category-filter col-md-3 mt-5">
-                <p>{f:translate(key: 'filter_calendars', extensionName: 'MdFullcalendar')}</p>
-                <f:for each="{categories}" as="category">
-                    <div class="form-check category{category.uid} border border-white rounded">
-                        <div class="p-1">
-                                <input type="checkbox" value="category{category.uid}" name="categoryFilter{contentObject.uid}" class="form-check-input" id="cf{contentObject.uid}_{category.uid}">
-                                <label class="form-check-label" for="cf{contentObject.uid}_{category.uid}">{category.title}</label>
-                        </div>
-                    </div>
-                </f:for>
+            <div id="categoryFilter{contentObject.uid}" class="category-filter col-md-12 mt-5">
+                <!-- <p>{f:translate(key: 'filter_calendars', extensionName: 'MdFullcalendar')}</p>-->
+                <ul>
+                    <f:for each="{categories}" as="category">
+                        <li>
+                            <span class="form-check category{category.uid} border border-white rounded">
+                                <span class="p-1">
+                                    <input type="checkbox" value="category{category.uid}"
+                                           name="categoryFilter{contentObject.uid}" class="form-check-input"
+                                           id="cf{contentObject.uid}_{category.uid}">
+                                    <label class="form-check-label" for="cf{contentObject.uid}_{category.uid}">{category.title}</label>
+                                </span>
+                            </span>
+                        </li>
+                    </f:for>
+                </ul>
             </div>
         </f:if>
     </div>
+    <div class="row">
+        <!-- Calendar -->
+        <div id="calendar{contentObject.uid}" class="col-md-12"></div>
+    </div>
 
     <!-- Modal -->
-        <div class="modal fade" id="calModal{contentObject.uid}" tabindex="-1" role="dialog" aria-labelledby="calModalLabel" aria-hidden="true">
+    <div class="modal fade" id="calModal{contentObject.uid}" tabindex="-1" role="dialog" aria-labelledby="calModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-content-inner"></div>
                 <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal">{f:translate(key: 'close', extensionName: 'MdFullcalendar')}</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal">{f:translate(key: 'close', extensionName: 'MdFullcalendar')}</button>
                 </div>
             </div>
         </div>
@@ -40,20 +47,25 @@
                 return;
             }
 
-                var calendarEl<f:format.raw>{contentObject.uid}</f:format.raw> = document.getElementById('calendar<f:format.raw>{contentObject.uid}</f:format.raw>'),
+            let calendarEl<f:format.raw>{contentObject.uid}</f:format.raw> = document.getElementById('calendar<f:format.raw>{contentObject.uid}</f:format.raw>'),
                 calModal = $('#calModal<f:format.raw>{contentObject.uid}</f:format.raw>'),
                 filtersActive = $('#categoryFilter<f:format.raw>{contentObject.uid}</f:format.raw>').length;
 
-                var calendar<f:format.raw>{contentObject.uid}</f:format.raw> = new FullCalendar.Calendar(calendarEl<f:format.raw>{contentObject.uid}</f:format.raw>, {
+            let calendar<f:format.raw>{contentObject.uid}</f:format.raw> = new FullCalendar.Calendar(calendarEl<f:format.raw>{contentObject.uid}</f:format.raw>, {
                 schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
                     firstDay: 1,
+                    nowIndicator: true,
+                    allDaySlot: false,
+                    slotMinTime: "10:00:00",
+                    slotMinTime: "24:00:00",
                     <f:format.raw>{f:if(condition: '{settings.language}', then: 'locale: \'{settings.language}\',')}</f:format.raw>
                 initialView: '<f:format.raw>{settings.view}</f:format.raw>',
-                    headerToolbar : {
-                    left: 'title',
-                        center: '',
-                        right: 'prev,next today'
-                    },
+                timeZone: "Europe/Berlin",
+                headerToolbar : {
+                left: 'title',
+                    center: '',
+                    right: 'prev,next today'
+                },
                 eventTextColor: 'black',
                     resources: [
                     // See https://fullcalendar.io/docs/resource-parsing
@@ -80,7 +92,7 @@
                     /* showNonCurrentDates: false, */ /* In month view, whether dates in the previous or next month should be rendered at all. */
                     events: function(info, successCallback, failureCallback) {
                     getEvents(info, successCallback, failureCallback);
-                    },
+                },
                 eventDidMount: function (item) {
                     /* add title attribute */
                     $(item.el).prop('title', item.event.extendedProps.abstract);
@@ -125,11 +137,11 @@
                             });
                         });
                     }
-                    },
-                });
+                },
+            });
 
             function getEvents(info, successCallback, failureCallback) {
-                    let eventsUrl = '<f:format.raw><f:uri.page pageUid="<f:format.raw>{contentObject.pid}</f:format.raw>" pageType='1573738558' additionalParams="{storage: '{storagePid}'}" /></f:format.raw>';
+                let eventsUrl = '<f:format.raw><f:uri.page pageUid="<f:format.raw>{contentObject.pid}</f:format.raw>" pageType='1573738558' additionalParams="{storage: '{storagePid}'}" /></f:format.raw>';
 
                 $.ajax({
                     url: eventsUrl,
@@ -163,7 +175,7 @@
             }
 
             /* render calendar */
-                calendar<f:format.raw>{contentObject.uid}</f:format.raw>.render();
+            calendar<f:format.raw>{contentObject.uid}</f:format.raw>.render();
 
             /* category filter */
             $('#categoryFilter<f:format.raw>{contentObject.uid}</f:format.raw> [type=checkbox]').on('change', function () {
@@ -182,7 +194,7 @@
                     $('#calendar<f:format.raw>{contentObject.uid}</f:format.raw> .cal-item').removeClass('d-none');
                 }
 
-                    calendar<f:format.raw>{contentObject.uid}</f:format.raw>.refetchEvents();
+                calendar<f:format.raw>{contentObject.uid}</f:format.raw>.refetchEvents();
             });
 
         });
